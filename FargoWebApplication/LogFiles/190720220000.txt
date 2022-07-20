@@ -1,0 +1,144 @@
+-----------Exception Details on  19-07-2022 08:33:32 AM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 19-07-2022 08:33:32 AM
+
+Error Line No : ine 260
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Column 'SLOT_ID' does not belong to table Table1.
+
+ Error Page Url: http://localhost:6492/Store/Slot
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  19-07-2022 08:35:17 AM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 19-07-2022 08:35:17 AM
+
+Error Line No : ine 260
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Column 'SLOT_ID' does not belong to table Table1.
+
+ Error Page Url: http://localhost:6492/Store/Slot
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  19-07-2022 09:34:29 AM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 19-07-2022 09:34:29 AM
+
+Error Line No : ine 199
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : @SLOT_ID is not a parameter for procedure spStore.
+
+ Error Page Url: http://localhost:6492/Store/Modify?SLOT_ID=1
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  19-07-2022 09:34:33 AM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 19-07-2022 09:34:33 AM
+
+Error Line No : ine 199
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : @SLOT_ID is not a parameter for procedure spStore.
+
+ Error Page Url: http://localhost:6492/Store/Modify?SLOT_ID=1
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  19-07-2022 10:13:09 AM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 19-07-2022 10:13:09 AM
+
+Error Line No : ine 243
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+
+ Error Page Url: http://localhost:6492/Store/Slot
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  19-07-2022 10:01:33 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 19-07-2022 10:01:33 PM
+
+Error Line No : ine 160
+
+Error Message: WebException
+
+Exception Type: System.Net.WebException
+
+Error Location : The underlying connection was closed: Could not establish trust relationship for the SSL/TLS secure channel.
+
+ Error Page Url: http://localhost:6492/api/BookingTransactionAPI/BookingTransactionMaster
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+

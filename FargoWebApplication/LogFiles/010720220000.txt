@@ -1,0 +1,144 @@
+-----------Exception Details on  01-07-2022 08:30:32 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 01-07-2022 08:30:32 PM
+
+Error Line No : ine 171
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+
+ Error Page Url: http://localhost:6492/
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  01-07-2022 08:30:33 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 01-07-2022 08:30:33 PM
+
+Error Line No : line 22
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : A connection was successfully established with the server, but then an error occurred during the pre-login handshake. (provider: SSL Provider, error: 0 - The wait operation timed out.)
+
+ Error Page Url: http://localhost:6492/Home/Index
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  01-07-2022 08:30:34 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 01-07-2022 08:30:34 PM
+
+Error Line No : line 53
+
+Error Message: IndexOutOfRangeException
+
+Exception Type: System.IndexOutOfRangeException
+
+Error Location : Cannot find table 4.
+
+ Error Page Url: http://localhost:6492/Home/Index
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  01-07-2022 08:30:34 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 01-07-2022 08:30:34 PM
+
+Error Line No : line 84
+
+Error Message: IndexOutOfRangeException
+
+Exception Type: System.IndexOutOfRangeException
+
+Error Location : Cannot find table 5.
+
+ Error Page Url: http://localhost:6492/Home/Index
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  01-07-2022 08:33:43 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 01-07-2022 08:33:43 PM
+
+Error Line No : line 23
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+
+ Error Page Url: http://localhost:6492/User/Index
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  01-07-2022 08:33:51 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 01-07-2022 08:33:51 PM
+
+Error Line No : line 71
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+
+ Error Page Url: http://localhost:6492/api/LoginAPI/ForgotPassword
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+

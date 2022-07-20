@@ -1,0 +1,96 @@
+-----------Exception Details on  13-07-2022 12:19:36 AM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 13-07-2022 12:19:36 AM
+
+Error Line No : ine 126
+
+Error Message: WebException
+
+Exception Type: System.Net.WebException
+
+Error Location : The operation has timed out
+
+ Error Page Url: http://localhost:6492/api/MPesaTransactionAPI/MPesaValidation
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  13-07-2022 12:22:11 AM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 13-07-2022 12:22:11 AM
+
+Error Line No : ine 126
+
+Error Message: WebException
+
+Exception Type: System.Net.WebException
+
+Error Location : The remote server returned an error: (400) Bad Request.
+
+ Error Page Url: http://localhost:6492/api/MPesaTransactionAPI/MPesaValidation
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  13-07-2022 12:44:30 AM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 13-07-2022 12:44:30 AM
+
+Error Line No : ine 126
+
+Error Message: WebException
+
+Exception Type: System.Net.WebException
+
+Error Location : The remote server returned an error: (400) Bad Request.
+
+ Error Page Url: http://localhost:6492/api/MPesaTransactionAPI/MPesaValidation
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  13-07-2022 12:50:55 AM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 13-07-2022 12:50:55 AM
+
+Error Line No : ine 122
+
+Error Message: ArgumentException
+
+Exception Type: System.ArgumentException
+
+Error Location : Stream was not writable.
+
+ Error Page Url: http://localhost:6492/api/MPesaTransactionAPI/MPesaValidation
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
