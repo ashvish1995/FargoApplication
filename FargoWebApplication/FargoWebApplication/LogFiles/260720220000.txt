@@ -1,0 +1,48 @@
+-----------Exception Details on  26-07-2022 07:46:53 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 26-07-2022 07:46:53 PM
+
+Error Line No : line 96
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : Invalid column name 'CASH_AMOUNT'.
+
+ Error Page Url: http://localhost:6492/api/BookingTransactionAPI/BookingTransactionMaster
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  26-07-2022 08:56:10 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 26-07-2022 08:56:10 PM
+
+Error Line No : line 67
+
+Error Message: NullReferenceException
+
+Exception Type: System.NullReferenceException
+
+Error Location : Object reference not set to an instance of an object.
+
+ Error Page Url: http://localhost:6492/api/BookingTransactionAPI/BookingTransactionMaster
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+

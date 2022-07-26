@@ -85,6 +85,14 @@ namespace Fargo_Models
        public string errorCode { get; set; }
        public string errorMessage { get; set; }
    }
+
+   public class ETRFileLocationModel
+   {
+       public string Status { get; set; }
+       public string Message { get; set; }
+       public string TransactionId { get; set; }
+       public string FileLocation { get; set; }     
+   }
    public class ETRTransactionSignatureResponseModel
    {
        public string cuNumber { get; set; }

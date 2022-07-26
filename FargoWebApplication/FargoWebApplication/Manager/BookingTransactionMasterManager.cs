@@ -18,7 +18,6 @@ namespace FargoWebApplication.Manager
     public class BookingTransactionMasterManager
     {
         public DbFargoApplicationEntities _db = new DbFargoApplicationEntities();
-
         public static List<BookingTransactionMasterModel> TransactionReport(BOOKING_TRANSACTION_MASTER _BOOKING_TRANSACTION_MASTER)
         {
             List<BookingTransactionMasterModel> LstBookingTransactionMaster = new List<BookingTransactionMasterModel>();
@@ -60,10 +59,11 @@ namespace FargoWebApplication.Manager
 
         public static int SubmitBookingTransaction(BookingTransactionMasterModel bookingTransactionMaster)
         {
-            int result = 0;
+            int result = 0; 
+            double? totalCashAmount = 0; double? totalMPesaAmount = 0; double? totalCreditAmount = 0;
+            int NoOfCashTransaction = 0; int NoOfMPesaTransaction = 0; int NoOfCreditTransaction = 0;
             try
             {          
-
                 SqlParameter sp1 = new SqlParameter("@USER_ID", bookingTransactionMaster.USER_ID);
                 SqlParameter sp2 = new SqlParameter("@CASHIER_ID", bookingTransactionMaster.CASHIER_ID);
                 SqlParameter sp3 = new SqlParameter("@STORE_ID", bookingTransactionMaster.STORE_ID);
@@ -82,17 +82,29 @@ namespace FargoWebApplication.Manager
                 DataTable dataTable = clsDataAccess.ExecuteDataTable(CommandType.StoredProcedure, "spBookingTransaction", sp1, sp2, sp3, sp4, sp5, sp6, sp7, sp8, sp9, sp10, sp11, sp12, sp13, sp14);
                 if (dataTable != null) {
                     string BOOKING_TRANSACTION_ID = dataTable.Rows[0][0].ToString();
-                    DataTable _DTPayment = DTPayment(bookingTransactionMaster.BOOKING_PAYMENT_DETAILS, BOOKING_TRANSACTION_ID, bookingTransactionMaster.USER_ID.ToString());
+                    DataTable _DTPayment = DTPayment(bookingTransactionMaster.BOOKING_PAYMENT_DETAILS, BOOKING_TRANSACTION_ID, bookingTransactionMaster.USER_ID.ToString(), bookingTransactionMaster.CUSTOMER_ID, bookingTransactionMaster.TOTAL_AMOUNT, out totalCashAmount, out totalMPesaAmount, out totalCreditAmount, out NoOfCashTransaction, out NoOfMPesaTransaction, out NoOfCreditTransaction);
                     DataTable _DTOrder = DTOrder(bookingTransactionMaster.BOOKING_ORDER_DETAILS, BOOKING_TRANSACTION_ID, bookingTransactionMaster.USER_ID.ToString());
 
-                    SqlParameter _sp1 = new SqlParameter("@tblPayment", _DTPayment);
-                    SqlParameter _sp2 = new SqlParameter("@tblOrder", _DTOrder);
-                    SqlParameter _sp3 = new SqlParameter("@BOOKING_TRANSACTION_ID", BOOKING_TRANSACTION_ID);
-                    SqlParameter _sp4 = new SqlParameter("@FLAG", "2");
+                    SqlParameter _sp1 = new SqlParameter("@BOOKING_TRANSACTION_ID", BOOKING_TRANSACTION_ID);
+                    SqlParameter _sp2 = new SqlParameter("@tblPayment", _DTPayment);
+                    SqlParameter _sp3 = new SqlParameter("@tblOrder", _DTOrder);
+                    SqlParameter _sp4 = new SqlParameter("@TOTAL_CASH_AMOUNT", totalCashAmount);
+                    SqlParameter _sp5 = new SqlParameter("@TOTAL_MPESA_AMOUNT", totalMPesaAmount);
+                    SqlParameter _sp6 = new SqlParameter("@TOTAL_CREDIT_AMOUNT", totalCreditAmount);
+                    SqlParameter _sp7 = new SqlParameter("@NO_OF_CASH_TRANSACTION", NoOfCashTransaction);
+                    SqlParameter _sp8 = new SqlParameter("@NO_OF_MPESA_TRANSACTION", NoOfMPesaTransaction);
+                    SqlParameter _sp9 = new SqlParameter("@NO_OF_CREDIT_TRANSACTION", NoOfCreditTransaction);
+                    SqlParameter _sp10 = new SqlParameter("@CASHIER_ID", bookingTransactionMaster.CASHIER_ID);
+                    SqlParameter _sp11 = new SqlParameter("@STORE_ID", bookingTransactionMaster.STORE_ID);
+                    SqlParameter _sp12 = new SqlParameter("@FLAG", "2");
 
-                    result = clsDataAccess.ExecuteNonQuery(CommandType.StoredProcedure, "spBookingTransaction", _sp1, _sp2, _sp3, _sp4);
+                    result = clsDataAccess.ExecuteNonQuery(CommandType.StoredProcedure, "spBookingTransaction", _sp1, _sp2, _sp3, _sp4, _sp5, _sp6, _sp7, _sp8, _sp9, _sp10, _sp11, _sp12);
                     if (result > 0)
                     {
+                        string _transactionId = "";
+                        Int32 _initialTransactionId = 100000000;
+                        _transactionId = (_initialTransactionId + Convert.ToInt32(BOOKING_TRANSACTION_ID)).ToString();
+
                         ETRTransactionBuyerModel _ETRTransactionBuyerModel = new ETRTransactionBuyerModel()
                         {
                             registrationName = "Domestic Customer",
@@ -132,7 +144,7 @@ namespace FargoWebApplication.Manager
                             tax=_ETRTransactionTaxModel,
                             taxExclusiveAmount= 4069.36,
                             taxInclusiveAmount= 4720.46,
-                            transactionID= "890000275",
+                            transactionID = _transactionId,
                             transactionTypeCode= 1
                         };
 
@@ -191,8 +203,11 @@ namespace FargoWebApplication.Manager
             return result;
         }
 
-        private static DataTable DTPayment(List<BookingPaymentDetailsModel> _BOOKING_PAYMENT_DETAILS, string BOOKING_TRANSACTION_ID, string USER_ID)
+        private static DataTable DTPayment(List<BookingPaymentDetailsModel> _BOOKING_PAYMENT_DETAILS, string BOOKING_TRANSACTION_ID, string USER_ID,long CUSTOMER_ID, double? TOTAL_AMOUNT, out double? totalCashAmount, out double? totalMPesaAmount, out double? totalCreditAmount, out int NoOfCashTransaction, out int NoOfMPesaTransaction, out int NoOfCreditTransaction)
         {
+            totalCashAmount=0; totalMPesaAmount=0;  totalCreditAmount=0;
+            NoOfCashTransaction = 0; NoOfMPesaTransaction=0;  NoOfCreditTransaction = 0;
+
             DataTable _DTPayment = new DataTable();
             _DTPayment.Columns.Add("BOOKING_TRANSACTION_ID");
             _DTPayment.Columns.Add("REFERENCE_NUMBER");
@@ -207,10 +222,34 @@ namespace FargoWebApplication.Manager
             _DTPayment.AcceptChanges();
             try
             {
-                foreach (BookingPaymentDetailsModel BookingPaymentDetails in _BOOKING_PAYMENT_DETAILS)
+                if (CUSTOMER_ID > 0)
                 {
-                    _DTPayment.Rows.Add(BOOKING_TRANSACTION_ID, BookingPaymentDetails.REFERENCE_NUMBER, BookingPaymentDetails.PAYMENT_MODE, BookingPaymentDetails.AMOUNT, BookingPaymentDetails.STATUS, BookingPaymentDetails.DESCRIPTION, "M" ,"1", USER_ID, DateTime.Now.ToString("MM-dd-yyyy hh:mm:ss"));
+                    totalCreditAmount = TOTAL_AMOUNT;
+                    NoOfCreditTransaction = 1;
+
+                    _DTPayment.Rows.Add(BOOKING_TRANSACTION_ID, null, "CREDIT", TOTAL_AMOUNT, null, "Full payment made via Credit.", "M", "1", USER_ID, DateTime.Now.ToString("MM-dd-yyyy hh:mm:ss"));
                     _DTPayment.AcceptChanges();
+                }
+                else 
+                {
+                    foreach (BookingPaymentDetailsModel BookingPaymentDetails in _BOOKING_PAYMENT_DETAILS)
+                    {
+                        if (BookingPaymentDetails.AMOUNT > 0)
+                        {
+                            if (BookingPaymentDetails.PAYMENT_MODE == "CASH")
+                            {
+                                totalCashAmount += BookingPaymentDetails.AMOUNT == null ? 0 : BookingPaymentDetails.AMOUNT;
+                                NoOfCashTransaction = NoOfCashTransaction + 1;
+                            }
+                            if (BookingPaymentDetails.PAYMENT_MODE == "MPESA")
+                            {
+                                totalMPesaAmount += BookingPaymentDetails.AMOUNT == null ? 0 : BookingPaymentDetails.AMOUNT;
+                                NoOfMPesaTransaction = NoOfMPesaTransaction + 1;
+                            }
+                            _DTPayment.Rows.Add(BOOKING_TRANSACTION_ID, BookingPaymentDetails.REFERENCE_NUMBER, BookingPaymentDetails.PAYMENT_MODE, BookingPaymentDetails.AMOUNT, BookingPaymentDetails.STATUS, BookingPaymentDetails.DESCRIPTION, "M", "1", USER_ID, DateTime.Now.ToString("MM-dd-yyyy hh:mm:ss"));
+                            _DTPayment.AcceptChanges();
+                        }                       
+                    }                                                
                 }
             }
             catch (Exception exception)
@@ -321,5 +360,6 @@ namespace FargoWebApplication.Manager
             }
             return LstBookingTransactionReport;
         }
+   
     }
 }

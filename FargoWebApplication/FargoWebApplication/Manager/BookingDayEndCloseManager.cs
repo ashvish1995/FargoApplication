@@ -64,8 +64,11 @@ namespace FargoWebApplication.Manager
             {
                 foreach (DenominationModel denominationModel in _DENOMINATION_DETAILS)
                 {
-                    _DTDenomination.Rows.Add(BOOKING_DAY_END_TRANSACTION_ID, denominationModel.DENOMINATION_ID, denominationModel.QUANTITY, denominationModel.AMOUNT, denominationModel.DESCRIPTION, "M", "1", USER_ID, DateTime.Now.ToString("MM-dd-yyyy hh:mm:ss"));
-                    _DTDenomination.AcceptChanges();
+                    if (denominationModel.DENOMINATION_ID > 0 && denominationModel.AMOUNT > 0)
+                    {
+                        _DTDenomination.Rows.Add(BOOKING_DAY_END_TRANSACTION_ID, denominationModel.DENOMINATION_ID, denominationModel.QUANTITY, denominationModel.AMOUNT, denominationModel.DESCRIPTION, "M", "1", USER_ID, DateTime.Now.ToString("MM-dd-yyyy hh:mm:ss"));
+                        _DTDenomination.AcceptChanges();
+                    }                  
                 }
             }
             catch (Exception exception)

@@ -1,0 +1,124 @@
+-----------Exception Details on  23-07-2022 04:00:27 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 23-07-2022 04:00:27 PM
+
+Error Line No : ine 243
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : Invalid object name 'SLOT_MASTER'.
+
+ Error Page Url: http://localhost:6492/Store/Slot
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  23-07-2022 05:25:56 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 23-07-2022 05:25:56 PM
+
+Error Line No : ine 313
+
+Error Message: FormatException
+
+Exception Type: System.FormatException
+
+Error Location : Input string was not in a correct format.
+
+ Error Page Url: http://localhost:6492/Report/Transaction
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  23-07-2022 10:10:20 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 23-07-2022 10:10:20 PM
+
+Error Line No : ine 105
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : Conversion failed when converting the nvarchar value 'W' to data type bit.
+The data for table-valued parameter "@tblStoreLotMaster" doesn't conform to the table type of the parameter.
+The statement has been terminated.
+
+ Error Page Url: http://localhost:6492/Lot/SubmitLotInfo
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  23-07-2022 10:14:34 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 23-07-2022 10:14:34 PM
+
+Error Line No : ine 105
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : Conversion failed when converting the nvarchar value 'W' to data type bit.
+The data for table-valued parameter "@tblStoreLotMaster" doesn't conform to the table type of the parameter.
+The statement has been terminated.
+
+ Error Page Url: http://localhost:6492/Lot/SubmitLotInfo
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+
+-----------Exception Details on  23-07-2022 10:36:01 PM-----------------
+-------------------------------------------------------------------------------------
+
+
+
+Log Written Date: 23-07-2022 10:36:01 PM
+
+Error Line No : line 23
+
+Error Message: SqlException
+
+Exception Type: System.Data.SqlClient.SqlException
+
+Error Location : A network-related or instance-specific error occurred while establishing a connection to SQL Server. The server was not found or was not accessible. Verify that the instance name is correct and that SQL Server is configured to allow remote connections. (provider: Named Pipes Provider, error: 40 - Could not open a connection to SQL Server)
+
+ Error Page Url: http://localhost:6492/
+
+User Host IP: 
+
+
+--------------------------------*End*------------------------------------------
+
+
+

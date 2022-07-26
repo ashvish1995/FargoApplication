@@ -52,7 +52,8 @@
     <Compile Include="MPesaTransactionModel.cs" />
     <Compile Include="ResponseModel.cs" />
     <Compile Include="RoleModel.cs" />
-    <Compile Include="SlotModel.cs" />
+    <Compile Include="LotModel.cs" />
+    <Compile Include="SettlementModel.cs" />
     <Compile Include="StateModel.cs" />
     <Compile Include="StoreModel.cs" />
     <Compile Include="TaxModel.cs" />
